@@ -2,6 +2,9 @@ declared-services:
   applicationDB:
     label: cloudantNoSQLDB
     plan: Lite
+  mywebsiteScalingService:
+    label: Auto-scaling
+    plan: free
 applications:
 - name: mywebsite
   memory: 128M
@@ -13,4 +16,5 @@ applications:
     OPENAPI_SPEC: "/explorer/swagger.yml"
   services:
   - applicationDB
+  - mywebsiteScalingService
   timeout: 180

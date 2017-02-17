@@ -26,5 +26,6 @@ stages:
     script: |-
       #!/bin/bash
       cf create-service cloudantNoSQLDB Lite applicationDB
+      cf create-service Auto-scaling free mywebsiteScalingService
       cf push "${CF_APP}"
       # cf logs "${CF_APP}" --recent

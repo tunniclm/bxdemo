@@ -2,6 +2,7 @@
   "appType": "web",
   "appName": "mywebsite",
   "metrics": true,
+  "autoscale": true,
   "bluemix": true,
   "services": {
     "cloudant": [

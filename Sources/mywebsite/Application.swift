@@ -9,6 +9,7 @@ import CloudFoundryConfig
 
 import SwiftMetrics
 import SwiftMetricsDash
+import SwiftMetricsBluemix
 
 import CouchDB
 
@@ -30,21 +31,14 @@ public func initialize() throws {
         print("load error")
     }
     // Set up monitoring
-    do {
     let sm = try SwiftMetrics()
     let _ = try SwiftMetricsDash(swiftMetricsInstance : sm, endpoint: router)
-    } catch {
-        print("metrics error")
-    }
+    let _ = AutoScalar(swiftMetricsInstance: sm)
 
 
     // Configuring cloudant
-    do {
     let cloudantService = try manager.getCloudantService(name: "applicationDB")
     let dbClient = CouchDBClient(service: cloudantService)
-    } catch {
-        print("service lookup error")
-    }
 
     router.all("/", middleware: StaticFileServer())
 
