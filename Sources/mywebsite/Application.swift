@@ -23,8 +23,12 @@ internal var database: Database?
 
 public func initialize() throws {
 
+    do {
     try manager.load(file: "../../config.json")
                 .load(.environmentVariables)
+    } catch {
+        print(error)
+    }
     // Set up monitoring
     let sm = try SwiftMetrics()
     let _ = try SwiftMetricsDash(swiftMetricsInstance : sm, endpoint: router)
