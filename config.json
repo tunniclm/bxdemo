@@ -1,0 +1,19 @@
+{
+  "VCAP_SERVICES": {
+    "cloudantNoSQLDB": [
+      {
+        "name": "applicationDB",
+        "label": "cloudantNoSQLDB",
+        "tags": [],
+        "plan": "Lite",
+        "credentials": {
+          "host": "localhost",
+          "port": 5984,
+          "url": "",
+          "username": "",
+          "password": ""
+        }
+      }
+    ]
+  }
+}

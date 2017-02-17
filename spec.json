@@ -1,0 +1,20 @@
+{
+  "appType": "web",
+  "appName": "mywebsite",
+  "metrics": true,
+  "bluemix": true,
+  "services": {
+    "cloudant": [
+      {
+        "name": "applicationDB",
+        "host": "localhost",
+        "port": 5984
+      }
+    ]
+  },
+  "config": {
+    "store": "cloudant",
+    "logger": "helium",
+    "port": 8090
+  }
+}
