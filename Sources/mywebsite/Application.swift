@@ -27,14 +27,14 @@ public func initialize() throws {
     try manager.load(file: "../../config.json")
                 .load(.environmentVariables)
     } catch {
-        print(error)
+        print("load error")
     }
     // Set up monitoring
     do {
     let sm = try SwiftMetrics()
     let _ = try SwiftMetricsDash(swiftMetricsInstance : sm, endpoint: router)
     } catch {
-        print(error)
+        print("metrics error")
     }
 
 
@@ -43,7 +43,7 @@ public func initialize() throws {
     let cloudantService = try manager.getCloudantService(name: "applicationDB")
     let dbClient = CouchDBClient(service: cloudantService)
     } catch {
-        print(error)
+        print("service lookup error")
     }
 
     router.all("/", middleware: StaticFileServer())
